@@ -1,8 +1,8 @@
 ☕ Stories Coffee — Revenue Optimization, Forecasting & Decision Support
 
-Course: EECE 490 — Machine Learning Hackathon
-Project Type: Business Intelligence + Forecasting + Strategic Optimization
-Tools: Python, Pandas, Prophet, Scikit-Learn, Matplotlib, ipywidgets
+🎓 Course: EECE 490 — Machine Learning Hackathon
+📊 Project Type: Business Intelligence + Forecasting + Strategic Optimization
+🛠 Tools: Python, Pandas, Prophet, Scikit-Learn, Matplotlib, ipywidgets
 
 📂 Required Raw POS Files
 
@@ -16,20 +16,16 @@ rep_s_00191_SMRY-3.csv	Sales by Groups.csv
 rep_s_00673_SMRY.csv	Category summary.csv
 
 ⚠️ Filenames must match exactly (including spacing and capitalization).
+📁 Place them in the project directory before execution.
 
-Place them in the project directory before execution.
-
-1. Business Problem
+🎯 1. Business Problem
 
 Stories Coffee operates a multi-branch network with:
 
-25+ branches
-
-300+ products
-
-Strong seasonal variation
-
-Uneven profitability distribution
+🏬 25+ branches
+🍰 300+ products
+📈 Strong seasonal variation
+⚖️ Uneven profitability distribution
 
 The objective of this project is to:
 
@@ -45,29 +41,28 @@ Forecast future sales
 
 Build an executive-level decision tool
 
-Rather than focusing on expansion, the strategy focuses on:
+💡 Strategy Focus:
+Increase profitability through targeted optimization of products and branches rather than aggressive expansion.
 
-Increasing profitability through targeted optimization of products and branches.
-
-2. Data Engineering & Cleaning Pipeline
+🧹 2. Data Engineering & Cleaning Pipeline
 
 Four messy POS reports were cleaned and transformed into structured datasets.
 
-Clean Outputs Produced
+📦 Clean Outputs Produced
 
-monthly_wide
+1️⃣ monthly_wide
 Year × Branch × Jan–Dec × Total
 
-category_branch
+2️⃣ category_branch
 Branch-level totals with revenue, cost, profit, margin
 
-product_profit
+3️⃣ product_profit
 Product-level profitability preserving hierarchy
 
-groups_sales
+4️⃣ groups_sales
 Division and group-level sales breakdown
 
-Cleaning Included
+🔧 Cleaning Included
 
 Removal of page headers and report noise
 
@@ -82,8 +77,8 @@ Removal of date-stamp rows
 Safe revenue reconstruction when needed:
 
 Revenue = Total_Cost + Total_Profit
-3. Exploratory Data Analysis (EDA)
-Revenue Concentration
+📊 3. Exploratory Data Analysis (EDA)
+💰 Revenue Concentration
 
 Calculated total revenue per branch
 
@@ -91,22 +86,20 @@ Computed revenue share (% of total)
 
 Ranked branches by performance
 
-Finding:
+📌 Finding:
 Top 3 branches generate more than one-third of company revenue.
 
-Seasonality Analysis
+📆 Seasonality Analysis
 
 Monthly totals (2025) show:
 
-Peak months: July–August
-
-Strong Q4: October–December
-
-Weakest month: June
+🔥 Peak months: July–August
+📦 Strong Q4: October–December
+📉 Weakest month: June
 
 Sales volatility is seasonal but predictable.
 
-4. Product Strategic Clustering (KMeans)
+🧠 4. Product Strategic Clustering (KMeans)
 
 Products were clustered using:
 
@@ -118,7 +111,7 @@ Average Margin
 
 After feature scaling, KMeans was applied (3 clusters).
 
-Clusters were scored using business weights:
+⚖️ Cluster Scoring Weights
 
 40% Profit
 
@@ -126,18 +119,16 @@ Clusters were scored using business weights:
 
 25% Volume
 
-Final Labels
+🏷 Final Labels
 
-Star → High volume + High margin
+⭐ Star → High volume + High margin
+🔵 Core Products → Stable profit contributors
+🔴 Low Performer → Weak financial impact
 
-Core Products → Stable profit contributors
-
-Low Performer → Weak financial impact
-
-Key finding:
+📌 Key finding:
 Profitability is highly concentrated in yoghurt combos, bottled water, and classic bakery items.
 
-5. Branch Ranking Model
+🏆 5. Branch Ranking Model
 
 Branches were scored using normalized metrics:
 
@@ -149,17 +140,15 @@ Branches were scored using normalized metrics:
 
 Branches were segmented into:
 
-Top
+🟢 Top
+🟡 Mid
+🔴 Underperformer
 
-Mid
-
-Underperformer
-
-6. Sales Forecasting (Prophet Model)
+📈 6. Sales Forecasting (Prophet Model)
 
 A time-series forecasting model was built per stable branch.
 
-Stability Criteria
+📌 Stability Criteria
 
 Minimum 8 months of data
 
@@ -167,11 +156,11 @@ Last 3 months active
 
 Positive total sales
 
-Forecast Target
+🎯 Forecast Target
 
 February–December 2026
 
-Steps:
+🔄 Process
 
 Convert wide data to long format
 
@@ -183,13 +172,15 @@ Train Prophet model per branch
 
 Aggregate forecasts
 
-Estimated runtime: ~2–3 minutes.
+⏳ Estimated runtime: ~2–3 minutes.
 
-7. Interactive CEO Dashboard & Decision Support System
+🖥 7. Interactive CEO Dashboard & Decision Support System
 
 The project includes a fully interactive executive dashboard using ipywidgets.
 
-Option A — Executive Dashboard
+📊 Option A — Executive Dashboard
+
+Provides:
 
 Year selector
 
@@ -207,20 +198,24 @@ Menu Engineering quadrant visualization
 
 Forecast display (if available)
 
-Option B — Strategic What-If Simulator
+🎛 Option B — Strategic What-If Simulator
 
 Interactive sliders allow simulation of:
 
-Price increase on Stars & Plowhorses
+📈 Price increase on Stars & Plowhorses
+📣 Promotion lift on Puzzles
+🗑 Removal of low-performing Dogs
 
-Promotion lift on Puzzles
+💡 Impact Estimation Logic
 
-Removal of low-performing Dogs
+Pricing uplift = Revenue × % increase
 
-Impact is estimated using transparent business logic.
+Promotion uplift = Qty × Profit per unit × % lift
 
-8. How to Run the Project
-Install Dependencies
+Total uplift = Pricing + Promotion impact
+
+⚙️ 8. How to Run the Project
+📦 Install Dependencies
 pip install -r requirements.txt
 
 Required libraries:
@@ -237,7 +232,7 @@ prophet
 
 ipywidgets
 
-Execution Order
+▶️ Execution Order
 
 Rename POS files correctly.
 
@@ -251,4 +246,4 @@ Run branch ranking.
 
 Run forecasting section.
 
-Run CEO dashboard cell
+Run CEO dashboard cell.
